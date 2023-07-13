@@ -1,5 +1,9 @@
 export const cards = [
     {
+        nombre: "Genshin Impact",
+        link: "https://images2.alphacoders.com/130/1303348.jpg",
+    },
+    {
         nombre: "Yelan",
         link: "https://images7.alphacoders.com/124/1240905.png",
     },
@@ -9,14 +13,10 @@ export const cards = [
     },
     {
         nombre: "Shenhe",
-        link: "https://initiate.alphacoders.com/images/119/stretched-1920-1080-1192694.jpg?2005",
+        link: "https://images5.alphacoders.com/120/1200477.jpg",
     },
     {
         nombre: "Kokomi",
-        link: "https://initiate.alphacoders.com/images/129/stretched-1920-1080-1294709.png?8804",
-    },
-    {
-        nombre: "Rosaria",
-        link: "https://initiate.alphacoders.com/images/121/stretched-1920-1080-1210478.jpg?7316",
+        link: "https://images7.alphacoders.com/129/1294709.png",
     }
 ]
