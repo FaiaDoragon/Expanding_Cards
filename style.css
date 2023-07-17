@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
 
+:root {
+ --line-border-fill: #3498db;
+ --line-border-empy: #e0e0e0;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -50,6 +55,84 @@ body {
 .panel.active h3 {
     opacity: 1;
     transition: opacity 0.3s ease-in 0.4s;
+}
+
+.progress-bar {
+    text-align: center;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 400px;
+}
+
+.progress-container::before{
+    content: '';
+    background-color: var(--line-border-empy);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    z-index: -1;
+}
+
+.progress {
+    background-color: var(--line-border-fill);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 0%;
+    z-index: -1;
+    transition: .4s ease;
+}
+
+.circle {
+    background-color: #fff;
+    color: #999;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--line-border-empy);
+}
+
+.circle.active {
+    border-color: var(--line-border-fill);
+}
+
+.btn {
+    color: #fff;
+    background-color: var(--line-border-fill);
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 8px 30px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn:focus{
+    outline: 0;
+}
+
+.btn:disabled {
+    background-color: var(--line-border-empy);
+    cursor: not-allowed;
 }
 
 @media(max-widht:_480px) {
