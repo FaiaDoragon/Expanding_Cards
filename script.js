@@ -12,28 +12,61 @@ const circles = document.querySelectorAll('.circle')
 
 FirstPanel.classList.add('active')
 
+
+
 function removeActiveClasses () {
     panels.forEach(panel => {
         panel.classList.remove('active')
     })
 }
 
+let currentActivate = 1
+
+function combination() {
+    if (currentActivate) {
+        removeActiveClasses()
+        panels[currentActivate-1].classList.add('active')
+    } 
+}
+
+
 
 panels.forEach((panel) => {
     panel.addEventListener('click', () => {
         removeActiveClasses()
         panel.classList.add('active')
+
+        if (panels[0].classList.contains('active')) {
+            currentActivate = 1
+            update()
+        } else if (panels[1].classList.contains('active')) {
+            currentActivate = 2
+            update()
+        } else if (panels[2].classList.contains('active')) {
+            currentActivate = 3
+            update()
+        } else if (panels[3].classList.contains('active')) {
+            currentActivate = 4
+            update()
+        } else if (panels[4].classList.contains('active')) {
+            currentActivate = 5
+            update()
+        }
     })
+    
 })
 
-let currentActivate = 1
+
 
 next.addEventListener('click', () => {
     currentActivate++
 
     if (currentActivate > circles.length) {
         currentActivate = circles.length
+        
     }
+
+    combination()
     update()
 })
 
@@ -43,9 +76,8 @@ prev.addEventListener('click', () => {
     if (currentActivate < 1) {
         currentActivate = circles.length
     }
-
+    combination()
     update()
-
 })
 
 function update() {
@@ -63,7 +95,9 @@ function update() {
 
     if (currentActivate === 1) {
         prev.disabled = true
+        next.disabled = false
     } else if (currentActivate === circles.length) {
+        prev.disabled = false
         next.disabled = true
     } else {
         prev.disabled = false
