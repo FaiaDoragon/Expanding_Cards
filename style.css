@@ -107,7 +107,7 @@ body {
     border: 3px solid var(--line-border-empy);
 }
 
-.circle.active {
+.circle.actived {
     border-color: var(--line-border-fill);
 }
 
