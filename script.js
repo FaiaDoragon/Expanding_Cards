@@ -13,7 +13,7 @@ const circles = document.querySelectorAll('.circle')
 FirstPanel.classList.add('active')
 
 
-
+//remueve la clase: Active una vez seleccionado cualquier panel
 function removeActiveClasses () {
     panels.forEach(panel => {
         panel.classList.remove('active')
@@ -22,20 +22,26 @@ function removeActiveClasses () {
 
 let currentActivate = 1
 
+//con esta funcion al pulsar next o prev se activara el respectivo panel asignado al numero
 function combination() {
+    //verificamos el currentActivate
     if (currentActivate) {
+        //removemos la clase activa
         removeActiveClasses()
+        //asignamos al panel correspondiente la clase activa
         panels[currentActivate-1].classList.add('active')
     } 
 }
 
 
-
+//agrega la clase active a cualquier panel que se seleccione
 panels.forEach((panel) => {
     panel.addEventListener('click', () => {
         removeActiveClasses()
+        //al panel selecciondo se le agrega la clase active
         panel.classList.add('active')
 
+        //segun el panel seleccionado se activaran los circulos con la funcion update correspondiente
         if (panels[0].classList.contains('active')) {
             currentActivate = 1
             update()
@@ -57,7 +63,7 @@ panels.forEach((panel) => {
 })
 
 
-
+//agregado evento click al botton next
 next.addEventListener('click', () => {
     currentActivate++
 
@@ -65,22 +71,28 @@ next.addEventListener('click', () => {
         currentActivate = circles.length
         
     }
-
+    //llamamos la funcion combination para que tanto al seleccionar un panel o presionar next/prev se activen las clases correspondientes tanto en panel como en circulos
     combination()
+    //llamanos la funcion update para la activacion de los circulos
     update()
 })
 
+//agregado evento click al botton prev
 prev.addEventListener('click', () => {
     currentActivate--
 
     if (currentActivate < 1) {
         currentActivate = circles.length
     }
+    //llamamos la funcion combination para que tanto al seleccionar un panel o presionar next/prev se activen las clases correspondientes tanto en panel como en circulos
     combination()
+    //llamanos la funcion update para la activacion de los circulos
     update()
 })
 
+//con esta funcion desactivaremos los bottones
 function update() {
+    // depende el panel seleccionado se resalatara el circulo correpondiente
     circles.forEach((circle, idx) => {
         if (idx < currentActivate) {
             circle.classList.add('actived')
@@ -91,8 +103,10 @@ function update() {
 
     const actives = document.querySelectorAll('.actived')
     
+    //se modifica el archivo style para que la barra azul alcanze el respectivo circulo de su respectivo panel
     progress.style.width = (actives.length - 1) / (circles.length - 1) * 100+'%' 
 
+    //si el primer o el ultimo panel estan seleccionados los botones se desactivaran
     if (currentActivate === 1) {
         prev.disabled = true
         next.disabled = false
