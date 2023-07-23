@@ -3,16 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
     crossorigin="anonymous" 
-    referrerpolicy="no-referrer" /> -->
-    <link rel="stylesheet" href="style.css">
+    referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/navstyle.css">
     <title>Expanding Cards Genshin</title>
 </head>
 <body>
+    <div class="circle-nav">
+        <button id="open">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+    <div class="nav" id="nav">
+        <button id="close">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul>
+            <li>hola mundo</li>
+        </ul>
+    </div>
     <div id="container" class="container">
-
     </div>
     <div class="progress-bar">
         <div class="progress-container">
@@ -28,4 +41,6 @@
     </div>
 </body>
 <script src="script.js" type="module"></script>
+<script src="./js/panels.js" type="module"></script>
+<script src="./js/nav.js" type="module"></script>
 </html>
